@@ -8,7 +8,7 @@
           <h4 class="media-heading">
 <!-- create a link to the show view for each topic -->
             <%= link_to "New Topic", new_topic_path, class: 'btn btn-success' %>
-            <%= link_to "Delete Topic", @topic, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this topic?' } %>
+            <%= link_to "Delete Topic", topic, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this topic?' } %>
             <%= link_to topic.title, topic %>
           </h4>
         </div>
