@@ -1,9 +1,5 @@
 class BookmarksController < ApplicationController
 
-  def index
-    @bookmarks = Bookmark.all
-  end
-
   def show
     @bookmark = Bookmark.find(params[:id])
   end
@@ -17,31 +13,16 @@ class BookmarksController < ApplicationController
     @bookmark = Bookmark.new
   end
 
-  def update
-    @bookmark = Bookmark.find(params[:id])
-      if @bookmark.save
-      flash[:notice] = "Bookmark was updated"
-      redirect_to @bookmark
-    else
-      flash.now[:alert] = "There was an error. Please try again."
-      render :edit
-    end
-
-  end
-
   def create
-    @bookmark = Bookmark.new
-    @bookmark.url = params[:bookmark][:url]
     @topic = Topic.find(params[:topic_id])
-    @bookmark.topic = @topic
-    @bookmark.user = current_user
+    @bookmark = @topic.bookmarks.build(bookmark_params)
 
     if @bookmark.save
-      flash[:notice] = "Bookmark Created"
+      flash[:notice] = "Bookmark was saved"
       redirect_to [@topic, @bookmark]
      else
-      flash.now[:alert] = "There was an error. Please try again."
-      render :new
+      flash.now[:alert] = "Bookmark was not saved. Please try again."
+      render :back
     end
   end
 
@@ -55,4 +36,11 @@ class BookmarksController < ApplicationController
       render :edit
     end
   end
+
+end
+
+private
+
+def bookmark_params
+  params.require(:bookmark).permit(:url, :name)
 end

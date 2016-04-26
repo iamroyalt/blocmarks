@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   #get 'welcome/index'
 
-  resources :topics
+  resources :topics do
+    resources :bookmarks
+  end
 
   devise_for :users
 
