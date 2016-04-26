@@ -1,2 +1,19 @@
-<h4><%= (@topic.title) %><h4>
-<h1> this is topics/show.html <h1>
+
+  <h1> My Blocmark Topics</h1>
+  <h2><%= @topic.title %></h2>
+  <%= link_to "New Bookmark", new_topic_bookmark_path(@topic), class: 'btn btn-success btn-xs' %>
+
+ <% @topic.bookmarks.each do |bookmark| %>
+   <div class="media-body">
+     <div class="row">
+       <div class="col-md-1">
+         <div class="container">
+             <img src="<%= bookmark.url %>
+           <div class="media-heading">
+             <%= link_to bookmark.name, topic_bookmark_path(@topic, bookmark) %>
+           </div>
+         </div
+       </div>
+     </div>
+   </div>
+ <% end %>

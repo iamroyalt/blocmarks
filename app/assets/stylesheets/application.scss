@@ -1,2 +1,16 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.top-navigation {
+     position: relative;
+     width: 100%;
+     height: 170px;
+     font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif
+ }
+ .top-navigation h1 {
+    font-size: 5.0rem;
+    margin-top: 0px;
+    padding: 10px;
+    text-align: center;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  }
