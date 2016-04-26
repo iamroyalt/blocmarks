@@ -14,15 +14,15 @@ Rails.application.configure do
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
 
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.default_url_options = { host: 'shielded-fortress-28843.herokuapp.com' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :user_name => '2593e673e51a03',
-    :password => '4d417318f26a53',
+    :user_name => '3b4cedee7bf46c',
+    :password => '85926d7b285673',
     :address => 'mailtrap.io',
     :domain => 'mailtrap.io',
     :port => '2525',
-    :authentication => :LOGIN
+    :authentication => :cram_md5
    }
 
   # Enable Rack::Cache to put a simple HTTP cache in front of your application
