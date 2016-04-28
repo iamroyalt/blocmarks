@@ -1,6 +1,5 @@
 class BookmarksController < ApplicationController
 
-  before_action :authenticate_user!
 
   def show
     @bookmark = Bookmark.find(params[:id])
@@ -12,6 +11,7 @@ class BookmarksController < ApplicationController
 
   def update
     @bookmark = Bookmark.find(params[:id])
+    @bookmark.url = params[:bookmark][:url]
 
     if @bookmark.save
       flash[:notice] = "Bookmark updated"
