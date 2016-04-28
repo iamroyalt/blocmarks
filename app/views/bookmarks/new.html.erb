@@ -1,9 +1,10 @@
-<h1> Enter a New Blocmark!</h1>
-  <div class="row" >
-    <%= form_for [@topic, @bookmark] do |f| %>
-  </div>
-    <% f.label :url %>
-    <%= f.text_field :url, class: 'form-control', placeholder: " Enter New Blocmark URL" %>
-    <%= f.submit "Save", class: 'btn btn-success btn-xs' %>
-  </div>
- <% end %>
+<h1>Enter a New Blocmark!</h1>
+<div class="row" >
+  <%= form_for [@topic, @bookmark] do |f| %>
+    <div>
+      <%= f.label :url %>
+      <%= f.text_field :url, class: 'form-control', placeholder: "Enter New Blocmark URL" %>
+      <%= f.submit "Save", class: 'btn btn-success btn-xs' %>
+    </div>
+  <% end %>
+</div>
