@@ -1,4 +1,4 @@
-require 'support/controller_support'
+require 'rails_helper'
 
 describe BookmarksController do
   describe "GET #show" do
