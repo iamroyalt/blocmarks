@@ -47,17 +47,11 @@ class BookmarksController < ApplicationController
 
     if @bookmark.destroy
       flash[:notice] = "Bookmark deleted"
-      redirect_to request.referrer
+      redirect_to @bookmark.topic
     else
       flash.now[:alert] = "There was an error. Please try again."
       render :edit
     end
   end
 
-end
-
-private
-
-def bookmark_params
-  params.require(:bookmark).permit(:url, :name)
 end
