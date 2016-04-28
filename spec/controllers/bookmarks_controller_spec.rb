@@ -1,6 +1,12 @@
 require 'rails_helper'
 
+
 describe BookmarksController do
+
+  let(:my_topic)    { create(:topic) }
+  let(:my_user)     { create(:user) }
+  let(:my_bookmark) { create(:bookmark, topic: my_topic, user: my_user) }
+
   describe "GET #show" do
       it "returns http success" do
         get :show

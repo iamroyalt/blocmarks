@@ -12,7 +12,8 @@
           <div class="media">
             <div class="media-body">
               <h4 class="media-heading">
-                <%= link_to bookmark.url, bookmark.url %>
+                <#% need to better handle the http %>
+                <%= link_to bookmark.url, "http://#{bookmark.url}" %>
               </h4>
             </div>
             <% end %>
