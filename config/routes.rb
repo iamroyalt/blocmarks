@@ -6,11 +6,12 @@ Rails.application.routes.draw do
   end
 
   devise_for :users
+  resources :users, only: [:new, :index, :show]
 
   resources :welcome, only: [:index]
 
   get 'welcome/about'
   root to: "welcome#index"
 
-  post :incoming, to 'incoming/create'
+  post :incoming, to: 'incoming#create'
 end
