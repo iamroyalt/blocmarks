@@ -14,17 +14,25 @@ Rails.application.configure do
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
 
-  config.action_mailer.default_url_options = { host: 'shielded-fortress-28843.herokuapp.com' }
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    :user_name => '3b4cedee7bf46c',
-    :password => '85926d7b285673',
-    :address => 'mailtrap.io',
-    :domain => 'mailtrap.io',
-    :port => '2525',
-    :authentication => :cram_md5
-   }
 
+  #config.action_mailer.delivery_method = :smtp
+  #config.action_mailer.smtp_settings = {
+    #:user_name => '3b4cedee7bf46c',
+    #:password => '85926d7b285673',
+    #:address => 'mailtrap.io',
+    #:domain => 'mailtrap.io',
+    #:port => '2525',
+    #:authentication => :cram_md5
+   #Mailgun settings
+   #port:              587,
+   #address:           'smtp.mailgun.org',
+   #user_name:         ENV['MAILGUN_SMTP_LOGIN'],
+   #password:          ENV['MAILGUN_SMTP_PASSWORD'],
+   #domain:            'shielded-fortress-28843.herokuapp.com',
+   #domain:            'heroku.com'
+   #authentication:    :plain,
+   #content_type:      'text/html'
+ }
   # Enable Rack::Cache to put a simple HTTP cache in front of your application
   # Add `rack-cache` to your Gemfile before enabling this.
   # For large-scale production use, consider using a caching reverse proxy like
@@ -87,4 +95,5 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  config.action_mailer.default_url_options = { host: 'shielded-fortress-28843.herokuapp.com' }
 end
