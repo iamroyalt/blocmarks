@@ -11,7 +11,7 @@ class IncomingController < ApplicationController
     #puts "INCOMING PARAMS HERE: #{params}"
 
     if @user.nil?
-      @user = User.create(email: params[:sender], password: 'blocmarks2016')
+      @user = User.create(email: params[:sender], password: 'blocmarks2016', confirmed_at: Time.now)
     end
 
     if @topic.nil?
