@@ -2,10 +2,10 @@ require 'rails_helper'
 
 
 RSpec.describe BookmarksController, type: :controller do
-
+  include Devise::TestHelpers
 
   let(:my_topic)    { create(:topic) }
-  let(:my_user)     { create(:user, confirmed_at: Time.now) }
+  let(:my_user)     { create(:user, email: Faker::Internet.email, confirmed_at: Time.now) }
   let(:my_bookmark) { create(:bookmark, topic: my_topic, user: my_user) }
 
   before(:each) do
@@ -39,7 +39,7 @@ RSpec.describe BookmarksController, type: :controller do
 
     describe "GET #edit" do
       it "returns http success" do
-        get :edit
+        get :edit, topic_id: my_topic.id, id: my_bookmark.id
         expect(response).to have_http_status(:success)
       end
     end
