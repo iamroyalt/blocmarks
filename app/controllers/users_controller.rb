@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
 
-  before_action :authenticate_user!
-
   def new
   end
 
@@ -17,9 +15,4 @@ class UsersController < ApplicationController
   def index
     @users = User.all
   end
-
-  def show
-    @user = current_user
-  end
-
 end
