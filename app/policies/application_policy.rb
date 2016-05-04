@@ -6,29 +6,29 @@ class ApplicationPolicy
     @record = record
   end
 
-  def index?
-    false
-  end
+  #def index?
+    #false
+  #end
 
-  def show?
-    scope.where(:id => record.id).exists?
-  end
+  #def show?
+    #scope.where(:id => record.id).exists?
+  #end
 
   def create?
     user.present?
   end
 
-  def new?
-    create?
-  end
+  #def new?
+    #create?
+  #end
 
   def update?
     user.present? && (record.user == user)
   end
 
-  def edit?
-    update?
-  end
+  #def edit?
+    #update?
+  #end
 
   def destroy?
     user.present? && (record.user == user)
