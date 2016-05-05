@@ -1,7 +1,7 @@
 class TopicsController < ApplicationController
 
   #before_action :authenticate_user!
-  #skip_after_action :verify_authorized
+  #after_action :verify_authorized
 
   def index
     @topics = Topic.all
