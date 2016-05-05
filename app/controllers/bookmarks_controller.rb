@@ -52,10 +52,11 @@ class BookmarksController < ApplicationController
   def destroy
     @bookmark = Bookmark.find(params[:id])
     authorize @bookmark
+    topic = @bookmark.topic
 
     if @bookmark.destroy
       flash[:notice] = "Bookmark deleted"
-      redirect_to @bookmark.topic
+      redirect_to topic
     else
       flash.now[:alert] = "There was an error. Please try again."
       render :edit
