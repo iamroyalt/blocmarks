@@ -1,0 +1,17 @@
+<h2> Blocmarks Users </h2>
+<% @users.each do |user| %>
+<p><%= link_to user.email, user %></p>
+<% user.topics.each do |topic| %>
+<% topic.bookmarks.each do |bookmark| %>
+  <div class="media">
+    <div class="media-body">
+      <h4 class="media-heading">
+        <% if like = current_user.liked(bookmark) %>
+        <%= link_to bookmark.url, topic_bookmark_path(topic, bookmark) %>
+        <% end %>
+      </h4>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+<% end %>
