@@ -2,10 +2,12 @@ class BookmarksController < ApplicationController
 
   before_action :authenticate_user!
   #after_action :verify_authorized, :except => :index
+  def index
+   @bookmarks = Bookmark.all
+  end
 
   def show
     @bookmark = Bookmark.find(params[:id])
-
   end
 
   def edit

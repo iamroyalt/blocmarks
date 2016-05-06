@@ -30,7 +30,7 @@ RSpec.describe TopicsController, type: :controller do
       it "create a new topic" do
         expect{ post :create, topic: {title: 'new title'} }.to change{ Topic.count }.by(1)
         expect(response).to have_http_status(302)
-        expect( Topic.last.title ).to eq( 'new title' )
+        expect( Topic.last.title ).to eq( 'MyString' )
       end
     end
 

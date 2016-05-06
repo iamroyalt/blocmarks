@@ -1,11 +1,12 @@
-<h1> My Blocmarks </h1>
+<h1> User Profile </h1>
+
 <div class="row">
   <div class="col-md-8">
     <% @user.topics.each do |topic| %>
     <div class="media">
       <div class="media-body">
         <h2 class="media-heading">
-          <%= link_to topic.title, topic_bookmarks_path(topic) %>
+          <%= link_to topic.title, topic %>
         </h2>
         <% topic.bookmarks.each do |bookmark| %>
         <div class="media">
@@ -23,15 +24,15 @@
 <% end %>
 <h2> Liked </h2>
     <div class="media">
-    <div class="media-body">
-      <h4 class="media-heading">
-        <% @liked_bookmarks.each do |like| %>
-        <% if like = current_user.liked(bookmark) %>
-        <%= link_to bookmark.url, topic_bookmark_path(topic, bookmark) %>
-        <%= render partial: 'likes/like', locals: { bookmark: bookmark } %>
-        <% end %>
-      </h4>
-    </div>
-    <%= link_to "New Topic", new_topic_path, class: 'btn btn-success' %>
+      <div class="media-body">
+        <h4 class="media-heading">
+          <% @liked_bookmarks.each do |bookmark| %>
+            <% if current_user.liked(bookmark) %>
+              <%= link_to bookmark.url, topic_bookmark_path(bookmark.topic, bookmark) %>
+               <%= render partial: 'likes/like', locals: { bookmark: bookmark } %>
+            <% end %>
+        </h4>
+     </div>
+    <%#= link_to "New Topic", new_topic_path, class: 'btn btn-success' %>
   </div>
 <% end %>
